@@ -236,15 +236,19 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    padding-top: 100px;
-    padding-left: 5rem;
-    padding-right: 2rem;
+    padding: 100px 5rem 0;
 }
 
 .content {
     max-width: 50rem;
-    text-align: left;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Tag Box */
@@ -259,7 +263,7 @@ main {
     box-shadow: 
         inset 0 1px 0 rgba(255, 255, 255, 0.05),
         0 0 20px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
 }
 
 @keyframes animationGradient {
@@ -309,16 +313,19 @@ main {
     max-width: 40rem;
     letter-spacing: 0.05em;
     color: #a7a7a7;
-    margin: 2rem 0;
+    margin: 2rem auto;
     line-height: 1.6;
 }
 
 /* Buttons */
 .buttons {
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 1.5rem;
     margin-top: 3rem;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .btn-explore-djs,
@@ -333,6 +340,8 @@ main {
     font-family: 'Orbitron', sans-serif;
     display: inline-block;
     text-align: center;
+    box-sizing: border-box;
+    min-width: 14rem;
 }
 
 .btn-explore-djs {
@@ -376,12 +385,12 @@ section {
 
 .section-header {
     margin-bottom: 4rem;
-    text-align: left;
+    text-align: center;
 }
 
 .section-header h2 {
     font-family: 'Orbitron', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2rem, 4vw, 3.5rem);
     font-weight: 700;
     letter-spacing: 0.1em;
     color: #e7e7e7;
@@ -392,7 +401,8 @@ section {
 .section-line {
     width: 80px;
     height: 2px;
-    background: linear-gradient(to right, #606060, transparent);
+    background: linear-gradient(to right, transparent, #606060, transparent);
+    margin: 0 auto;
 }
 
 
@@ -404,6 +414,11 @@ section {
 
 .about-content {
     max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .about-text {
@@ -413,6 +428,7 @@ section {
     color: #a7a7a7;
     letter-spacing: 0.03em;
     margin-bottom: 3rem;
+    max-width: 42rem;
 }
 
 .btn-learn-more {
@@ -454,6 +470,12 @@ section {
 .view-all {
     text-align: center;
     margin-top: 3rem;
+}
+
+/* View All DJs — slightly more contained than primary DJ CTAs */
+.section-featured-djs .btn-view-all {
+    padding: 0.65rem 1.75rem;
+    font-size: 0.88rem;
 }
 
 .btn-view-all {
@@ -541,6 +563,9 @@ section {
 
 /* DJ Info */
 .dj-info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
     padding: 1.5rem;
 }
 
@@ -587,10 +612,8 @@ section {
     line-height: 1.6;
     color: #888;
     letter-spacing: 0.02em;
-    .section-next-event {
-        background: transparent;
-    }
 }
+
 .section-next-event {
     background: transparent;
 }
@@ -768,6 +791,7 @@ section {
 .section-container-full .section-header {
     padding: 0 5rem;
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 /* Horizontal Scroll Container */
@@ -810,6 +834,8 @@ section {
 .merch-card {
     width: 400px;
     min-width: 400px;
+    display: flex;
+    flex-direction: column;
     background: rgba(20, 20, 20, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.1);
     overflow: hidden;
@@ -852,6 +878,9 @@ section {
 
 /* Merch Info */
 .merch-info {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
     padding: 1.8rem;
 }
 
@@ -888,7 +917,7 @@ section {
     width: 100%;
     background-color: #a7a7a7;
     color: black;
-    padding: 1rem 2rem;
+    padding: 0.65rem 2rem;
     border: none;
     border-radius: 50px;
     font-family: 'Orbitron', sans-serif;
@@ -961,6 +990,178 @@ section {
     50% { opacity: 0.7; }
 }
 
+/* ============================================ */
+/* DESKTOP LAYOUT REFINEMENTS (min-width: 769px) */
+/* ============================================ */
+@media (min-width: 769px) {
+    /* Featured DJs — flex layout, content expands naturally */
+    .section-featured-djs .dj-card-inner {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .section-featured-djs .dj-image {
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        height: auto;
+        max-height: none;
+        min-height: 0;
+    }
+
+    .section-featured-djs .dj-image img {
+        height: 100%;
+        max-height: none;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    .section-featured-djs .dj-info {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.35rem;
+        padding: 0.85rem 1.15rem 1rem;
+        min-height: 0;
+        overflow: visible;
+        justify-content: flex-start;
+    }
+
+    .section-featured-djs .dj-info h3 {
+        margin-bottom: 0;
+        font-size: 1.25rem;
+    }
+
+    .section-featured-djs .genre-tags {
+        margin-bottom: 0;
+        gap: 0.35rem;
+    }
+
+    .section-featured-djs .dj-bio {
+        font-size: 0.88rem;
+        line-height: 1.45;
+    }
+
+    /* Shop — 3-column grid, no scroll, ~5% shorter cards */
+    .section-shop {
+        min-height: auto;
+        padding: 4rem 0;
+    }
+
+    .section-shop .section-container-full .section-header {
+        margin-bottom: 2rem;
+    }
+
+    .section-shop .merch-scroll-container {
+        overflow: visible;
+        padding: 0;
+    }
+
+    .section-shop .merch-scroll-wrapper {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        padding: 0 5rem;
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .section-shop .merch-card {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        min-width: 0;
+        height: auto;
+    }
+
+    .section-shop .merch-image-placeholder {
+        flex: 0 0 auto;
+        width: 100%;
+        aspect-ratio: 21 / 20;
+        height: auto;
+        min-height: 0;
+    }
+
+    .section-shop .merch-info {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.9rem 1.15rem 1rem;
+        min-height: 0;
+        overflow: visible;
+        justify-content: flex-start;
+    }
+
+    .section-shop .merch-name {
+        margin-bottom: 0;
+        line-height: 1.3;
+    }
+
+    .section-shop .merch-options {
+        margin-bottom: 0;
+    }
+
+    .section-shop .merch-price {
+        margin-bottom: 0;
+    }
+
+    .section-shop .btn-order {
+        margin-top: 0.45rem;
+        padding: 0.55rem 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .section-shop .scroll-hint {
+        display: none;
+    }
+
+    /* Next Event — ~15% more compact container */
+    .section-next-event {
+        padding: 5rem 0;
+    }
+
+    .section-next-event .section-header {
+        margin-bottom: 3rem;
+    }
+
+    .section-next-event .event-preview {
+        margin-bottom: 3rem;
+    }
+
+    .section-next-event .event-card-large {
+        padding: 2.25rem 2.5rem;
+    }
+
+    .section-next-event .event-date-badge {
+        top: 1.5rem;
+        right: 1.5rem;
+        padding: 0.75rem 1.25rem;
+    }
+
+    .section-next-event .event-title {
+        margin-bottom: 0.75rem;
+    }
+
+    .section-next-event .event-location {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-next-event .event-lineup {
+        margin-bottom: 1.5rem;
+    }
+
+    .section-next-event .lineup-label {
+        margin-bottom: 0.6rem;
+    }
+
+    .section-next-event .event-description {
+        margin-bottom: 1.75rem;
+    }
+}
+
 @media (max-width: 768px) {
     /* Header */
     header {
@@ -993,13 +1194,15 @@ section {
     .content {
         padding: 0;
         max-width: 100%;
-        margin: 0;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
     }
     
     .tag-box {
         width: 14rem;
         height: 2.2rem;
-        margin-bottom: 1.5rem;
+        margin: 0 auto 1.5rem;
     }
     
     .tag-box .tag {
@@ -1014,23 +1217,29 @@ section {
     
     .description {
         font-size: 1rem;
-        margin: 1.5rem 0;
+        margin: 1.5rem auto;
         line-height: 1.5;
     }
     
     .buttons {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 1rem;
         margin-top: 2.5rem;
         width: 100%;
+        padding: 0 5vw;
+        box-sizing: border-box;
     }
-    
+
     .btn-explore-djs,
     .btn-shop {
         width: 100%;
-        padding: 1rem 2rem;
-        font-size: 0.9rem;
+        max-width: min(17.5rem, calc(100vw - 10vw));
+        min-width: unset;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.85rem;
         text-align: center;
     }
 
@@ -1052,193 +1261,550 @@ section {
     .description {
         font-size: 0.95rem;
     }
-    .dj-grid-preview {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+
+    .section-next-event .section-header h2 {
+        font-size: 1.05rem;
+        letter-spacing: 0.1em;
     }
 
-   .dj-image {
-    height: 280px;
-    max-height: 280px;
+    .section-next-event .event-card-large {
+        max-height: 48vh;
+        padding: 0.75rem;
+    }
+
+    .section-next-event .event-title {
+        font-size: 0.85rem;
+    }
 }
 
-.dj-image img {
-    max-height: 280px;
-}
-
-    .dj-info h3 {
-    font-size: 1.3rem;
-     }
-}
-.event-card-large {
-    padding: 1.5rem 1rem;
-    padding-top: 5.5rem;
-}
-
-.event-date-badge {
-    top: 1rem;
-    right: 1rem;
-    padding: 0.6rem 1rem;
-    min-width: 60px;
-}
-
-.event-day {
-    font-size: 1.8rem;
-}
-
-.event-month {
-    font-size: 0.7rem;
-}
-
-.event-content {
-    max-width: 100%;
-    width: 100%;
-}
-
-.event-title {
-    font-size: 1.4rem;
-    line-height: 1.3;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-}
-
-.event-location {
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-}
-
-.lineup-label {
-    font-size: 0.7rem;
-}
-
-.lineup-djs {
-    gap: 0.5rem;
-}
-
-.lineup-dj {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.9rem;
-}
 @media (max-width: 768px) {
+    /* About: compact, wider text block */
+    .section-about {
+        min-height: auto;
+        padding: 2.5rem 0;
+        align-items: flex-start;
+    }
+
+    .section-about .section-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 5vw;
+        margin: 0 auto;
+    }
+
+    .section-about .section-header {
+        width: 100%;
+        max-width: 90vw;
+        margin: 0 auto 1.25rem;
+        text-align: center;
+    }
+
+    .section-about .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-about .section-line {
+        margin: 0 auto;
+    }
+
+    .about-content {
+        width: 100%;
+        max-width: 90vw;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+    }
+
+    .about-text {
+        font-size: 1rem;
+        line-height: 1.55;
+        letter-spacing: 0.02em;
+        margin-bottom: 1.25rem;
+        max-width: 42rem;
+    }
+
+    .btn-explore-djs,
+    .section-about .btn-learn-more {
+        width: auto;
+        max-width: min(17.5rem, calc(100vw - 10vw));
+        margin-inline: auto;
+        padding: 0.75rem 1.75rem;
+        font-size: 0.85rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .btn-explore-djs {
+        display: inline-block;
+    }
+
+    .section-about .btn-learn-more {
+        display: block;
+        width: fit-content;
+    }
+
+    .section-featured-djs .view-all {
+        padding: 0 9vw;
+        margin-top: 1.25rem;
+    }
+
+    .section-featured-djs .btn-view-all {
+        display: inline-block;
+        width: auto;
+        max-width: min(13rem, calc(100vw - 18vw));
+        margin-inline: auto;
+        padding: 0.55rem 1rem;
+        font-size: 0.75rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    /* DJ CTA buttons — centered, contained */
+    .buttons {
+        align-items: center;
+        padding-inline: 5vw;
+    }
+
     .section-featured-djs .section-container {
         padding: 0;
     }
-    
+
     .section-featured-djs .section-header {
-        padding: 0 1.5rem;
+        padding: 0 1.25rem;
+        text-align: center;
     }
-    
+
+    .section-featured-djs .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-featured-djs .section-line {
+        margin: 0 auto;
+    }
+
+    /* DJ carousel: 2 cards + partial peek */
     .dj-grid-preview {
+        --dj-carousel-pad: 1.25rem;
+        --dj-carousel-gap: 10px;
+        --dj-carousel-peek: 1.5rem;
+
         display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
         overflow-x: auto;
         overflow-y: hidden;
-        gap: 1.5rem;
-        padding: 0 1.5rem;
+        gap: var(--dj-carousel-gap);
+        padding: 0 var(--dj-carousel-pad);
+        margin: 0 auto 2rem;
+        max-width: 100vw;
         scroll-snap-type: x mandatory;
-        scrollbar-width: thin;
-        scrollbar-color: #333 transparent;
-        margin-bottom: 2rem;
+        scroll-behavior: smooth;
+        scroll-padding-inline: var(--dj-carousel-pad);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
-    
+
     .dj-grid-preview::-webkit-scrollbar {
-        height: 6px;
+        display: none;
+        width: 0;
+        height: 0;
     }
-    
-    .dj-grid-preview::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    
-    .dj-grid-preview::-webkit-scrollbar-thumb {
-        background: #333;
-        border-radius: 10px;
-    }
-    
+
     .dj-card {
-        min-width: 300px;
+        flex: 0 0 calc(
+            (100vw - (var(--dj-carousel-pad) * 2) - var(--dj-carousel-gap) - var(--dj-carousel-peek)) / 2
+        );
+        width: calc(
+            (100vw - (var(--dj-carousel-pad) * 2) - var(--dj-carousel-gap) - var(--dj-carousel-peek)) / 2
+        );
+        min-width: unset;
+        max-width: none;
         flex-shrink: 0;
         scroll-snap-align: start;
     }
-    
-    /* Add scroll hint for DJs section */
-    .section-featured-djs .view-all {
-        padding: 0 1.5rem;
+
+    .dj-card-inner {
+        display: flex;
+        flex-direction: column;
+        height: auto;
     }
-    
+
+    .dj-image {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-height: none;
+    }
+
+    .dj-image img {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+    .dj-card:hover .dj-image img {
+        transform: none;
+    }
+
+    .section-featured-djs .dj-info {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        padding: 0.65rem 0.7rem 0.75rem;
+        overflow: visible;
+    }
+
+    .dj-info h3 {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+    }
+
+    .genre-tags {
+        gap: 0.3rem;
+        margin-bottom: 0;
+    }
+
+    .tag-genre {
+        font-size: 0.55rem;
+        padding: 0.2rem 0.5rem;
+    }
+
+    .section-featured-djs .dj-bio {
+        font-size: 0.78rem;
+        line-height: 1.35;
+    }
+
     .section-featured-djs .view-all::before {
         content: '← SCROLL →';
         display: block;
         font-family: 'Orbitron', sans-serif;
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         font-weight: 600;
         letter-spacing: 0.3em;
         color: #444;
         text-align: center;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         animation: pulseHint 2s ease-in-out infinite;
+    }
+
+    /* Next Event: compact landscape card */
+    .section-next-event {
+        min-height: auto;
+        padding: 2rem 0 1.5rem;
+    }
+
+    .section-next-event .section-container {
+        padding: 0 5vw;
+    }
+
+    .section-next-event .section-header {
+        text-align: center;
+        margin-bottom: 0.85rem;
+    }
+
+    .section-next-event .section-header h2 {
+        font-size: 1.15rem;
+        letter-spacing: 0.12em;
+        white-space: nowrap;
+        margin-bottom: 0.35rem;
+    }
+
+    .section-next-event .section-line {
+        width: 48px;
+        margin: 0 auto;
+    }
+
+    .section-next-event .event-preview {
+        margin-bottom: 0.85rem;
+    }
+
+    .section-next-event .event-card-large {
+        display: grid;
+        grid-template-columns: 3.25rem 1fr;
+        gap: 0 0.75rem;
+        padding: 0.85rem;
+        max-height: 45vh;
+        position: relative;
+        align-items: start;
+    }
+
+    .section-next-event .event-date-badge {
+        position: static;
+        grid-column: 1;
+        grid-row: 1;
+        align-self: start;
+        padding: 0.4rem 0.35rem;
+        min-width: unset;
+        width: 3.25rem;
+    }
+
+    .section-next-event .event-day {
+        font-size: 1.25rem;
+    }
+
+    .section-next-event .event-month {
+        font-size: 0.52rem;
+        margin-top: 0.1rem;
+        letter-spacing: 0.1em;
+    }
+
+    .section-next-event .event-content {
+        grid-column: 2;
+        max-width: 100%;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .section-next-event .event-title {
+        font-size: 0.92rem;
+        line-height: 1.2;
+        margin-bottom: 0.2rem;
+        letter-spacing: 0.04em;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .section-next-event .event-location {
+        font-size: 0.7rem;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.05em;
+    }
+
+    .section-next-event .event-lineup {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.3rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .section-next-event .lineup-label {
+        font-size: 0.52rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .section-next-event .lineup-djs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .section-next-event .lineup-dj {
+        font-size: 0.52rem;
+        padding: 0.18rem 0.4rem;
+    }
+
+    .section-next-event .event-description {
+        font-size: 0.7rem;
+        line-height: 1.35;
+        margin-bottom: 0.5rem;
+        max-width: 100%;
+    }
+
+    .section-next-event .event-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+    }
+
+    .section-next-event .btn-event-details,
+    .section-next-event .btn-reserve {
+        flex: 1 1 calc(50% - 0.2rem);
+        width: auto;
+        min-width: 0;
+        padding: 0.45rem 0.4rem;
+        font-size: 0.6rem;
+        text-align: center;
+    }
+
+    .section-next-event .view-all {
+        margin-top: 0.85rem;
+    }
+
+    .section-next-event .btn-view-all {
+        padding: 0.55rem 1.25rem;
+        font-size: 0.75rem;
+    }
+
+    /* Shop: DJ-style carousel */
+    .section-shop {
+        min-height: auto;
+        padding: 2rem 0 1.5rem;
+    }
+
+    .section-shop .section-container-full .section-header {
+        padding: 0 1.25rem;
+        margin-bottom: 1.25rem;
+        text-align: center;
+    }
+
+    .section-shop .section-header h2 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .section-shop .section-line {
+        margin: 0 auto;
+    }
+
+    .section-shop .merch-scroll-container {
+        --carousel-pad: 1.25rem;
+        --carousel-gap: 10px;
+        --carousel-peek: 1.5rem;
+
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        scroll-padding-inline: var(--carousel-pad);
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    .section-shop .merch-scroll-container::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        height: 0;
+    }
+
+    .section-shop .merch-scroll-wrapper {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: stretch;
+        gap: var(--carousel-gap);
+        padding: 0 var(--carousel-pad);
+        margin: 0 auto;
+        max-width: 100vw;
+        width: max-content;
+    }
+
+    .section-shop .merch-card {
+        flex: 0 0 calc(
+            (100vw - (var(--carousel-pad) * 2) - var(--carousel-gap) - var(--carousel-peek)) / 2
+        );
+        width: calc(
+            (100vw - (var(--carousel-pad) * 2) - var(--carousel-gap) - var(--carousel-peek)) / 2
+        );
+        min-width: unset;
+        max-width: none;
+        flex-shrink: 0;
+        scroll-snap-align: start;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .section-shop .merch-card:hover {
+        transform: none;
+    }
+
+    .section-shop .merch-image-placeholder {
+        flex: 0 0 auto;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .section-shop .merch-label {
+        font-size: 1.5rem;
+    }
+
+    .section-shop .merch-card:hover .merch-label {
+        transform: none;
+    }
+
+    .section-shop .merch-info {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.55rem 0.65rem 0.65rem;
+        overflow: visible;
+    }
+
+    .section-shop .merch-name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0;
+        letter-spacing: 0.06em;
+        line-height: 1.25;
+    }
+
+    .section-shop .merch-options {
+        margin-bottom: 0;
+    }
+
+    .section-shop .merch-color {
+        font-size: 0.6rem;
+    }
+
+    .section-shop .merch-price {
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-bottom: 0;
+    }
+
+    .section-shop .btn-order {
+        margin-top: 0.35rem;
+        padding: 0.35rem 0.75rem;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+    }
+
+    .section-shop .scroll-hint {
+        margin-top: 0.85rem;
+        padding: 0 1.25rem;
+    }
+
+    .section-shop .scroll-hint span {
+        font-size: 0.65rem;
+    }
+
+    /* Footer: aligned with main content margins */
+    .footer {
+        padding: 1.5rem 5vw;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .footer-content {
+        width: 100%;
+        max-width: 90vw;
+        margin: 0 auto;
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
+        line-height: 1.5;
+    }
+
+    .footer-content p {
+        margin: 0;
+        font-size: 0.75rem;
+    }
+
+    .footer-links {
+        margin-top: 0.85rem;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        row-gap: 0.65rem;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+        letter-spacing: 0.04em;
     }
 }
 
-.event-description {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-}
-
-.event-actions {
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.btn-event-details,
-.btn-reserve {
-    width: 100%;
-    text-align: center;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.85rem;
-}
-
-.section-container-full .section-header {
-    padding: 0 1.5rem;
-}
-
-.merch-scroll-wrapper {
-    padding: 0 1.5rem;
-    gap: 1.5rem;
-}
-
-.merch-card {
-    width: 320px;
-    min-width: 320px;
-}
-
-.merch-image-placeholder {
-    height: 350px;
-}
-
-.merch-label {
-    font-size: 2.2rem;
-}
-
-.merch-info {
-    padding: 1.5rem;
-}
-
-.merch-name {
-    font-size: 1rem;
-}
-
-.merch-price {
-    font-size: 1.2rem;
-}
-
-.btn-order {
-    padding: 0.9rem 1.5rem;
-    font-size: 0.85rem;
-}
-
-.scroll-hint {
-    padding: 0 1.5rem;
-}
 @media (max-width: 768px) {
     /* ... other mobile styles ... */
     
