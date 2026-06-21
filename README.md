@@ -8,7 +8,7 @@ A modern, responsive website built for **Noma Tribe**, designed to showcase arti
 
 ## Live Demo
 
-Coming soon.
+https://nomatribe.netlify.app/
 
 ## Overview
 
